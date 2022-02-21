@@ -24,6 +24,21 @@ function RestAPI() {
       >
         POST
       </button>
+      <button
+        onClick={() => {
+          axios
+            .get("http://127.0.0.1:8000/review/")
+            .then(response => {
+              setText([...response.data]);
+              console.log(response.data);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+        }}
+      >
+        GET
+      </button>
     </div>
   );
 }
