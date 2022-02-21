@@ -39,6 +39,24 @@ function RestAPI() {
       >
         GET
       </button>
+      {text.map(e => (
+        <div>
+          <div className="list">
+            <span>
+              #{e.id} {e.title} {e.content} {e.date}
+            </span>
+            <button
+              className="btn-delete"
+              onClick={() => {
+                axios.delete("http://127.0.0.1:8000/review/${e.id}");
+                setText(text.filter(text => text.id !== e.id));
+              }}
+            >
+              DELETE
+            </button>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
