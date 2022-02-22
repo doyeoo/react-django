@@ -4,15 +4,21 @@ import "./RestAPI.css";
 
 function RestAPI() {
   const [text, setText] = useState([]);
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
   return (
     <div className="App">
       <h1>장고 리액트 연동 연습</h1>
+      <input value={title} onChange={e => setTitle(e.target.value)} />
+      <br />
+      <input value={content} onChange={e => setContent(e.target.value)} />
+      <br />
       <button
         onClick={() => {
           axios
             .post("http://127.0.0.1:8000/review/", {
-              title: "제목",
-              content: "내용",
+              title: title,
+              content: content,
             })
             .then(function (response) {
               console.log(response);
@@ -48,7 +54,7 @@ function RestAPI() {
             <button
               className="btn-delete"
               onClick={() => {
-                axios.delete("http://127.0.0.1:8000/review/${e.id}");
+                axios.delete(`http://127.0.0.1:8000/review/${e.id}`);
                 setText(text.filter(text => text.id !== e.id));
               }}
             >

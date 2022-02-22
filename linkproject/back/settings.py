@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mainapp.apps.MainappConfig',
+    'mainapp',
     'rest_framework',
     'corsheaders',
 ]
@@ -56,7 +56,7 @@ MIDDLEWARE = [
 CORS_ORIGIN_WHITELIST=('http://127.0.0.1:3000','http://localhost:3000')
 CORS_ALLOW_CREDENTIALS=True
 
-ROOT_URLCONF = 'linkproject.urls'
+ROOT_URLCONF = 'back.urls'
 
 TEMPLATES = [
     {
@@ -74,7 +74,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'linkproject.wsgi.application'
+WSGI_APPLICATION = 'back.wsgi.application'
 
 
 # Database
